@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSA Encrypt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="bin/jsencrypt.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(function () {
+  $('#but').click(function(){
+     var pub = $('#pub').val();
+     var crypt = new JSEncrypt();
+     crypt.setPublicKey(pub);
+     var data = $('#data').val();
+     $('#out').val(crypt.encrypt(data));
+  });
+});
+</script>
+<p>Key: <textarea style="width: 500px; height: 200px;" id="pub">-----BEGIN PUBLIC KEY-----
+MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALqbHeRLCyOdykC5SDLqI49ArYGYG1mq
+aH9/GnWjGavZM02fos4lc2w6tCchcUBNtJvGqKwhC5JEnx3RYoSX2ucCAwEAAQ==
+-----END PUBLIC KEY-----</textarea></p>
+
+<p>Data: <textarea style="width: 500px; height: 200px;" id="data">JavaScript is your choice</textarea></p>
+<p>Out: <textarea style="width: 500px; height: 200px;" id="out"></textarea></p>
+<button id="but">Encrypt</button>
+
+</body>
+</html>

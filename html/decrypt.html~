@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSA Encrypt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="bin/jsencrypt.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(function () {
+  $('#but').click(function(){
+     var key = $('#key').val();
+     var crypt = new JSEncrypt();
+     crypt.setPrivateKey(key);
+     var data = $('#data').val();
+     $('#out').val(crypt.encrypt(data));
+  });
+});
+</script>
+<p>Key: <textarea style="width: 500px; height: 100px;" id="key">-----BEGIN RSA PRIVATE KEY-----
+MIIBPQIBAAJBALqbHeRLCyOdykC5SDLqI49ArYGYG1mqaH9/GnWjGavZM02fos4l
+c2w6tCchcUBNtJvGqKwhC5JEnx3RYoSX2ucCAwEAAQJBAKn6O+tFFDt4MtBsNcDz
+GDsYDjQbCubNW+yvKbn4PJ0UZoEebwmvH1ouKaUuacJcsiQkKzTHleu4krYGUGO1
+mEECIQD0dUhj71vb1rN1pmTOhQOGB9GN1mygcxaIFOWW8znLRwIhAMNqlfLijUs6
+rY+h1pJa/3Fh1HTSOCCCCWA0NRFnMANhAiEAwddKGqxPO6goz26s2rHQlHQYr47K
+vgPkZu2jDCo7trsCIQC/PSfRsnSkEqCX18GtKPCjfSH10WSsK5YRWAY3KcyLAQIh
+AL70wdUu5jMm2ex5cZGkZLRB50yE6rBiHCd5W1WdTFoe
+-----END RSA PRIVATE KEY-----</textarea></p>
+<p>Data: <textarea style="width: 500px; height: 100px;" id="data">JutBa0GLHzGrlygxwWr66cizw4W4za+DbzZweNM0iloCD7xEP9LclL013lcksJL5XhjW44U+oxpq
+cX1ZSLhWuA==</textarea></p>
+<p>Out: <textarea style="width: 500px; height: 100px;" id="out"></textarea></p>
+<button id="but">Decrypt</button>
+
+</body>
+</html>
